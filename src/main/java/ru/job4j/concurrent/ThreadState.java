@@ -4,10 +4,10 @@ public class ThreadState {
 
     public static void main(String[] args) {
         Thread first = new Thread(
-                () -> {}
+                () -> { }
         );
         Thread second = new Thread(
-                () -> {}
+                () -> { }
         );
 
         System.out.println("first#Thread  - " + first.getState());
