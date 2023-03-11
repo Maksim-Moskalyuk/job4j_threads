@@ -13,7 +13,7 @@ public class Wget {
                             e.printStackTrace();
                         }
                     }
-                    System.out.println("\nЗагрузка завершена");
+                    System.out.println(System.lineSeparator() + "Загрузка завершена");
                 }
         );
         thread.start();

@@ -6,5 +6,6 @@ public class RollbackChangs {
         System.out.println("Произошли измениеия 1");
         System.out.println("Произошли измениеия 2");
         System.out.println("Произошли измениеия 3");
+        System.out.println("Произошли измениеия 3");
     }
 }
