@@ -8,17 +8,17 @@ public class ConsoleProgress implements Runnable {
         while (!Thread.currentThread().isInterrupted()) {
             System.out.print("\r Loading ... " + process[index]);
             index = (index + 1) % process.length;
+            try {
+                Thread.sleep(5000); /* симулируем выполнение параллельной задачи в течение 5 секунд. */
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+
         }
     }
 
     public static void main(String[] args) {
-        try {
-            Thread progress = new Thread(new ConsoleProgress());
-            progress.start();
-            Thread.sleep(5000); /* симулируем выполнение параллельной задачи в течение 5 секунд. */
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-
+        Thread progress = new Thread(new ConsoleProgress());
+        progress.start();
     }
 }
