@@ -23,7 +23,6 @@ public class ThreadState {
 
         System.out.println("first#Thread  - " + first.getState());
         System.out.println("second#Thread - " + second.getState());
-
         System.out.println("Работа завершена");
     }
 
