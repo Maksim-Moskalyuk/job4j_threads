@@ -4,6 +4,8 @@ public class RollbackChangs {
 
     public static void main(String[] args) {
         System.out.println("Произошли измениеия 1");
-        System.out.println("Добавляем с использованием amend");
+        System.out.println("Произошли измениеия 2");
+        System.out.println("Произошли измениеия 3");
+        System.out.println("Произошли измениеия 4");
     }
 }
