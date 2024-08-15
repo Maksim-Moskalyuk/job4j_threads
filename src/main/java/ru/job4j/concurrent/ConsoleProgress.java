@@ -1,6 +1,6 @@
 package ru.job4j.concurrent;
 
-public class ConsoleProgress implements Runnable{
+public class ConsoleProgress implements Runnable {
 
     @Override
     public void run() {
@@ -16,11 +16,10 @@ public class ConsoleProgress implements Runnable{
         try {
             Thread progress = new Thread(new ConsoleProgress());
             progress.start();
-            Thread.sleep(5000); /* симулируем выполнение параллельной задачи в течение 5 секунд. */
+            Thread.sleep(5000); // симулируем выполнение параллельной задачи в течение 5 секунд
             progress.interrupt();
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
-
     }
 }
