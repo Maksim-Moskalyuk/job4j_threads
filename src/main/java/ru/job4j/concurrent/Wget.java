@@ -54,11 +54,9 @@ public class Wget implements Runnable {
             downloadedBytes += bytesRead;
             downloadedBytesThisSecond += bytesRead;
 
-            // Рассчитываем, сколько времени должно было пройти для соблюдения лимита скорости
-            long expectedTime = (downloadedBytes * 1000L) / speed;  // время в миллисекундах
-            long actualTime = (System.nanoTime() - startTime) / 1_000_000;  // реальное прошедшее время в миллисекундах
+            long expectedTime = (downloadedBytes * 1000L) / speed;
+            long actualTime = (System.nanoTime() - startTime) / 1_000_000;
 
-            // Если прошла секунда, выводим количество скачанных байт
             long currentTime = System.currentTimeMillis();
             if (currentTime - lastSecond >= 1000) {
                 System.out.println("Downloaded in the last second: " + downloadedBytesThisSecond + " bytes");
@@ -68,14 +66,13 @@ public class Wget implements Runnable {
 
             if (actualTime < expectedTime) {
                 try {
-                    Thread.sleep(expectedTime - actualTime);  // делаем паузу, если скачивание слишком быстрое
+                    Thread.sleep(expectedTime - actualTime);
                 } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();  // восстанавливаем статус прерывания потока
+                    Thread.currentThread().interrupt();
                 }
             }
         }
 
-        // Выводим данные за последнюю неполную секунду, если остались байты
         if (downloadedBytesThisSecond > 0) {
             System.out.println("Downloaded in the last second: " + downloadedBytesThisSecond + " bytes");
         }
