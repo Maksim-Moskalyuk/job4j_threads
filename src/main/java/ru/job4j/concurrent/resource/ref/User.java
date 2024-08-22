@@ -32,4 +32,5 @@ public final class User {
     public User withName(String name) {
         return new User(this.id, name);
     }
+
 }
