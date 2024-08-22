@@ -27,4 +27,5 @@ public class UserCache {
                 .map(user -> user.withId(user.getId()).withName(user.getName()))
                 .collect(Collectors.toList());
     }
+
 }
